@@ -67,6 +67,13 @@
 -- (Toobin' never writes STIMER) and its "POKEY has no reset pin" SKCTL default
 -- (Toobin' wires the physical /REST).
 --
+-- Reset output level: /REST and SKCTL init used to force AUDIO_OUT to 0, which in
+-- this signed encoding is HALF-scale, not silence (an all-zero channel sum reads
+-- -1024).  Leaving SKCTL init stepped the output by half of full scale and gave a
+-- crack at every boot.  /REST now outputs the zero-sum code, and SKCTL init no
+-- longer overrides the mix, as in MAME, where only device reset clears m_out_raw
+-- and the sum is formed outside the SK_RESET branch (see p_op_mixer).
+--
 library ieee;
 	use ieee.std_logic_1164.all;
 	use ieee.std_logic_unsigned.all;
@@ -653,7 +660,8 @@ begin
 	begin
 		wait until rising_edge(CLK);
 		if (RESET_L = '0') then
-			AUDIO_OUT <= (others => '0');
+			-- zero-current code: the signed form of an all-zero sum (see header)
+			AUDIO_OUT <= (10 => '1', others => '0');
 		elsif (ENA = '1') then
 			for i in 1 to 4 loop
 				if (audc(i)(4) = '1') then -- vol only
@@ -672,11 +680,9 @@ begin
 			sum34 := ('0' & dac(3)) + ('0' & dac(4));
 			sum   := ('0' & sum12 ) + ('0' & sum34 );
 
-			if (reset = '1') then
-				AUDIO_OUT <= (others=>'0');
-			else
-				AUDIO_OUT <= signed((not sum(sum'left)) & sum(sum'left-1 downto 0) );
-			end if;
+			-- No SKCTL-init override: MAME keeps forming the sum during SK_RESET,
+			-- and the old forced 0 here was half-scale, not silence.
+			AUDIO_OUT <= signed((not sum(sum'left)) & sum(sum'left-1 downto 0) );
 		end if;
 	end process;
 

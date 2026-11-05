@@ -305,7 +305,7 @@ preserved:
 | TG68K (68010) | Tobias Gubener | LGPL-3.0-or-later |
 | T65 (6502) | Daniel Wallner, with fixes by Mike Johnson, ehenciak and Wolfgang Scherr (OpenCores / FPGAArcade) | BSD-style |
 | POKEY | Mike Johnson (FPGAArcade) | BSD-style |
-| jt51 (YM2151) | Jose Tejada (jotego) | GPL-3.0-or-later |
+| jt51 (YM2151) ([jt51](https://github.com/jotego/jt51) `2ca6601`, plus a timer `/RESET` fix) | Jose Tejada (jotego) | GPL-3.0-or-later |
 | `crt_adjust` ([MiSTer-CRT-Adjust](https://github.com/rmonic79/MiSTer-CRT-Adjust) `c682de9`) | Umberto Parisi (rmonic79) | GPL-3.0-or-later |
 
 The 68010, 6502, POKEY and SDRAM building blocks were taken from the
