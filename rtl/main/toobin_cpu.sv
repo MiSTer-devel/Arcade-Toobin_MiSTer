@@ -55,7 +55,7 @@ module toobin_cpu
 	// WHY a single posedge flop is not enough: `ipl_r` is NOT cen-gated (it toggles
 	// every posedge), so ipl_r->cpuipl would physically be a HALF cycle -- and an early
 	// blanket `set_multicycle_path -setup -end 8` across all of u_cpu told STA to check
-	// it 8 CYCLES out (Toobin.sdc now scopes that exception to the TG68K kernel only).
+	// it 8 CYCLES out (Arcade-Toobin.sdc now scopes that exception to the TG68K kernel only).
 	// STA therefore reported enormous slack while real silicon only had 7.8 ns
 	// -- the exact "closes-in-STA / fails-on-hardware" signature (deterministic, zero-delay-sim
 	// invisible, 64 MHz-only; atarisys1 runs this core at ~7 MHz where the half-cycle is ~70 ns).

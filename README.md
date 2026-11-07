@@ -53,7 +53,7 @@ the capture phase is now centred in the range measured to work across every boar
 
 ## Installation
 
-1. Copy `releases/Toobin_YYYYMMDD.rbf` to `_Arcade/cores/` on the SD card.
+1. Copy `releases/Arcade-Toobin_YYYYMMDD.rbf` to `_Arcade/cores/` on the SD card.
 2. Copy `releases/Toobin.mra` to `_Arcade/`, and any wanted alternates from
    `releases/_alternatives/` to `_Arcade/_alternatives/`.
 3. Place the matching MAME ROM archive (`toobin.zip`, etc.) in `games/mame/`.
@@ -286,8 +286,8 @@ settles it without touching hardware.
 ## Building
 
 Quartus Prime **17.0.2** (Lite or Standard) — the version MiSTer standardises on.
-Open `Toobin.qpf` and run a full compile; the bitstream lands in
-`output_files/Toobin.rbf`. Source files are listed in `files.qip`, which Quartus reads
+Open `Arcade-Toobin.qpf` and run a full compile; the bitstream lands in
+`output_files/Arcade-Toobin.rbf`. Source files are listed in `files.qip`, which Quartus reads
 but cannot edit — add and remove entries by hand.
 
 ## Attribution

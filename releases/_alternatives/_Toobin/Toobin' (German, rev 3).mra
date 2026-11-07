@@ -9,7 +9,7 @@
     <region>Germany</region>
     <players>2</players>
     <!-- MAME ROT270 == a monitor rotated counter-clockwise; the core rotates to match
-         (rotate_ccw=1 in Toobin.sv). -->
+         (rotate_ccw=1 in Arcade-Toobin.sv). -->
     <rotation>vertical (ccw)</rotation>
 
     <!-- Region order/sizes are decoded by rtl/mem/toobin_rom_loader.sv:

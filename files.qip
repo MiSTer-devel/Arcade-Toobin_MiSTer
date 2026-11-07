@@ -70,5 +70,5 @@ set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/toobin_jsa_lpf.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/toobin_jsa.sv
 
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/toobin_core.sv
-set_global_assignment -name SDC_FILE Toobin.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE Toobin.sv
+set_global_assignment -name SDC_FILE Arcade-Toobin.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-Toobin.sv

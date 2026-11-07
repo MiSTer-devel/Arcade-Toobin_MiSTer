@@ -26,7 +26,7 @@
 // game-independent. Structured as single-cycle command states + explicit wait states so
 // each step is obviously correct. This module's SDRAM_CLK output is the inverted
 // controller clock; the MiSTer top instead drives the pin from a phase-shifted PLL
-// output (see Toobin.sv) and leaves this one unconnected.
+// output (see Arcade-Toobin.sv) and leaves this one unconnected.
 module toobin_sdram #(
 	parameter int CLK_MHZ  = 32,    // controller clock in MHz (integer)
 	parameter int ROW_BITS = 13,
